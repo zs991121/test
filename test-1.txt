@@ -1,0 +1,62 @@
+#include<stdio.h>
+float ReadScore(float score[]);
+float Average(float score[],int n,int *counter);
+void  Sort(float score[],int n);
+int main()
+{	
+	float score[40],aver;int n,count=0,a,m,i; 
+	n = ReadScore(score);
+	printf ("该班共有%d同学,",n);
+	aver=Average(score,n,&count);
+	printf ("平均分是%0.2f,",aver);
+	printf("高于平均分的人数为%d人\n",count);
+	printf("成绩的前五名是；\n"); 
+ 	Sort (score,n);
+	for (i=0;i<5;i++)
+	printf("\t第%d名；%0.2f\n",i+1,score[i]);	
+}
+
+float ReadScore(float score[])
+{
+	int i=-1;
+	printf("请输入学生成绩，输入负数表示结束\n");
+	do{
+		i++;
+		scanf("%f",&score[i]);
+	}while (score[i]>=0);
+	return i;
+}
+float Average(float score[],int n,int *counter)
+{
+	int i,q=0;float sum=score[0],b;
+	for(i=1;i<n;i++)
+	{
+		sum+=score[i];
+	}
+b= sum/n;
+	for (i=0;i<n;i++)
+	{
+		{if (score [i]>b)
+		q++;}
+	}
+*counter=q;
+return b;
+}
+
+void Sort(float score[],int n)
+{
+	int i,j;float temp;
+	for(i=0;i<n-1;i++)
+	{
+		for(j=i+1;j<n;j++)
+		{if(score[j]>score[i])
+			{
+			temp=score[j];
+			score[j]=score[i];
+			score[i]=temp;
+			}
+		}
+	}
+
+		
+}
