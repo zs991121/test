@@ -56,7 +56,10 @@ void Sort(float score[],int n)
 			score[i]=temp;
 			}
 		}
-	}
-
-		
+	}	
 }
+
+
+code conclick1
+
+
